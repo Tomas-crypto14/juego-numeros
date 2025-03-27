@@ -70,6 +70,7 @@ function handleGuess() {
     // Comparar el intento con el número secreto
     if (userGuess === secretNumber) {
         setMessage(`¡Correcto! 🎉 El número era ${secretNumber}. Lo adivinaste en ${attempts} intentos.`, 'correct');
+        localStorage.setItem("HighScore", attempts);
         endGame();
         //Para los intentos hay que hacer una comparacion con el incrementador de intentos
         //y el numero maximo de intentos, hasta que llegue a 10 para.

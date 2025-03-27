@@ -1,6 +1,8 @@
 // --- Elementos del DOM ---
 const guessInput = document.getElementById('guessInput');
 const guessButton = document.getElementById('guessButton');
+const guessButton2 = document.getElementById('guessButton');
+const guessButton3 = document.getElementById('guessButton');
 const message = document.getElementById('message');
 const attemptsInfo = document.getElementById('attempts');
 const guessesList = document.getElementById('guessesList');
@@ -254,8 +256,8 @@ function endGame() {
 
 // Escuchar clics en el botón "Adivinar"
 guessButton.addEventListener('click', handleGuess);
-guessButton.addEventListener('click', handleGuessEasy);
-guessButton.addEventListener('click', handleGuessHard);
+guessButton2.addEventListener('click', handleGuessEasy);
+guessButton3.addEventListener('click', handleGuessHard);
 easy.addEventListener('click', startGameEasy);
 hard.addEventListener('click', startGameHard);
 // Escuchar la tecla "Enter" en el campo de entrada

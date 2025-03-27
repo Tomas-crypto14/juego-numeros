@@ -79,7 +79,8 @@ function handleGuess() {
     }
 
     if (MAX_ATTEMPTS = 10){
-        setMessage(`Se acabaron los intentos, el número era ${secretNumber}`)   
+        setMessage(`Se acabaron los intentos, el número era ${secretNumber}`, `Vuelve a intentarlo`)
+        endGame();   
     }
 }
 

@@ -9,6 +9,7 @@ const playAgainButton = document.getElementById('playAgainButton');
 // --- Variables del Juego ---
 let secretNumber;
 let attempts;
+const MAX_ATTEMPTS = 10;
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
 
@@ -56,7 +57,7 @@ function handleGuess() {
 
     // Incrementar el contador de intentos
     attempts++;
-    attemptsInfo.textContent = `Intentos: ${attempts}`;
+    attemptsInfo.textContent = `Intentos: ${attempts} / ${MAX_ATTEMPTS}`;
 
     const listItem = document.createElement("li");
     listItem.textContent = userGuess;
@@ -77,7 +78,7 @@ function handleGuess() {
         guessInput.focus();
     }
 
-    if (attempts = 10){
+    if (MAX_ATTEMPTS = 10){
         setMessage(`Se acabaron los intentos, el número era ${secretNumber}`)   
     }
 }

@@ -254,7 +254,8 @@ function endGame() {
 guessButton.addEventListener('click', handleGuess);
 guessButton.addEventListener('click', handleGuessEasy);
 guessButton.addEventListener('click', handleGuessHard);
-easy.addEventListener('click', startGameEasy)
+easy.addEventListener('click', startGameEasy);
+hard.addEventListener('click', startGameHard);
 // Escuchar la tecla "Enter" en el campo de entrada
 guessInput.addEventListener('keyup', function(event) {
     // Si la tecla presionada es Enter (código 13)

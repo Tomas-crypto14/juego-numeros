@@ -259,7 +259,7 @@ function endGame() {
 
 // Escuchar clics en el botón "Adivinar"
 guessButton.addEventListener('click', handleGuess);
-startGame();
+normal.addEventListener('click', startGame);
 easy.addEventListener('click', startGameEasy);
 hard.addEventListener('click', startGameHard);
 // Escuchar la tecla "Enter" en el campo de entrada

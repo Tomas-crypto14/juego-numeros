@@ -5,7 +5,6 @@ const message = document.getElementById('message');
 const attemptsInfo = document.getElementById('attempts');
 const guessesList = document.getElementById('guessesList');
 const playAgainButton = document.getElementById('playAgainButton');
-const dificultad = document.getElementById('dificultad')
 const easy = document.getElementById('easy');
 const hard = document.getElementById('hard');
 // --- Variables del Juego ---

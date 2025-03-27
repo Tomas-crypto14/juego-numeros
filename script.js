@@ -22,6 +22,7 @@ const MIN_NUMBER = 1;
 
 // Función para iniciar o reiniciar el juego
 function startGame() {
+    MAX_NUMBER = 100;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
     secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
@@ -42,6 +43,7 @@ function startGame() {
 
 // Función para manejar el intento del usuario
 function handleGuess() {
+    MAX_NUMBER = 100;
     const userGuessText = guessInput.value;
 
     // Validar si la entrada está vacía

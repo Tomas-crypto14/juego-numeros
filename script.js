@@ -3,6 +3,7 @@ const guessInput = document.getElementById('guessInput');
 const guessButton = document.getElementById('guessButton');
 const message = document.getElementById('message');
 const attemptsInfo = document.getElementById('attempts');
+const guessesList = document.getElementById('guessesList');
 const playAgainButton = document.getElementById('playAgainButton');
 
 // --- Variables del Juego ---
@@ -15,6 +16,7 @@ const MIN_NUMBER = 1;
 
 // Función para iniciar o reiniciar el juego
 function startGame() {
+    guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
     secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
@@ -56,6 +58,9 @@ function handleGuess() {
     attempts++;
     attemptsInfo.textContent = `Intentos: ${attempts}`;
 
+    const listItem = document.createElement("li");
+    listItem.textContent = userGuess;
+    guessesList.appendChild(listItem);
     // Comparar el intento con el número secreto
     if (userGuess === secretNumber) {
         setMessage(`¡Correcto! 🎉 El número era ${secretNumber}. Lo adivinaste en ${attempts} intentos.`, 'correct');

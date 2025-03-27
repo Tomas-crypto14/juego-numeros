@@ -16,6 +16,8 @@ let attempts;
 let MAXNUMBER;
 const MAX_ATTEMPTS = 10;
 const MAX_NUMBER = 100;
+const MAX_NUMBER_EASY = 50;
+const MAX_NUMBER_HARD = 200;
 const MIN_NUMBER = 1;
 // --- Funciones ---
 
@@ -135,8 +137,8 @@ function handleGuessEasy() {
     const userGuess = parseInt(userGuessText);
 
     // Validar si la entrada es un número válido y está en el rango
-    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
-        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER}.`, 'info');
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER_EASY) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER_EASY}.`, 'info');
         guessInput.value = ''; // Limpiar el input inválido
         guessInput.focus();
         return;
@@ -172,10 +174,10 @@ function handleGuessEasy() {
 }
 
 function startGameHard() {
-    MAX_NUMBER = 200;
+    //MAX_NUMBER = 200;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+    secretNumber = Math.floor(Math.random() * MAX_NUMBER_HARD) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
 
     // Mensajes iniciales y estado de la UI
@@ -204,8 +206,8 @@ function handleGuessHard() {
     const userGuess = parseInt(userGuessText);
 
     // Validar si la entrada es un número válido y está en el rango
-    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
-        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER}.`, 'info');
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER_HARD) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER_HARD}.`, 'info');
         guessInput.value = ''; // Limpiar el input inválido
         guessInput.focus();
         return;
@@ -266,6 +268,22 @@ guessInput.addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault(); // Evita comportamiento por defecto (si estuviera en un form)
         handleGuess(); // Llama a la función de adivinar
+    }
+});
+
+guessInput.addEventListener('keyup', function(event) {
+    // Si la tecla presionada es Enter (código 13)
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Evita comportamiento por defecto (si estuviera en un form)
+        handleGuessEasy(); // Llama a la función de adivinar
+    }
+});
+
+guessInput.addEventListener('keyup', function(event) {
+    // Si la tecla presionada es Enter (código 13)
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Evita comportamiento por defecto (si estuviera en un form)
+        handleGuessHard(); // Llama a la función de adivinar
     }
 });
 

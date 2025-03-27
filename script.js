@@ -14,6 +14,7 @@ let attempts;
 const MAX_ATTEMPTS = 10;
 const MAX_NUMBER = 100;
 const MAX_NUMBER_EASY = 50;
+const MAX_NUMBER_HARD = 200;
 const MIN_NUMBER = 1;
 // --- Funciones ---
 
@@ -167,6 +168,73 @@ function handleGuessEasy() {
     }
 }
 
+function startGameHard() {
+    guessesList.innerHTML = '';
+    // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
+    secretNumber = Math.floor(Math.random() * MAX_NUMBER_HARD) + MIN_NUMBER;
+    attempts = 0; // Reinicia los intentos
+
+    // Mensajes iniciales y estado de la UI
+    message.textContent = '';
+    message.className = 'message'; // Quita clases de color
+    attemptsInfo.textContent = '';
+    guessInput.value = ''; // Limpia el input
+    guessInput.disabled = false; // Habilita el input
+    guessButton.disabled = false; // Habilita el botón de adivinar
+    playAgainButton.style.display = 'none'; // Oculta el botón de jugar de nuevo
+    guessInput.focus(); // Pone el foco en el input
+
+    console.log(`Pssst... el número secreto es ${secretNumber}`); // Ayuda para depurar
+}
+
+// Función para manejar el intento del usuario
+function handleGuessHard() {
+    const userGuessText = guessInput.value;
+
+    // Validar si la entrada está vacía
+    if (userGuessText === '') {
+        setMessage('Por favor, introduce un número.', 'info');
+        return;
+    }
+
+    const userGuess = parseInt(userGuessText);
+
+    // Validar si la entrada es un número válido y está en el rango
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER_HARD) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER_HARD}.`, 'info');
+        guessInput.value = ''; // Limpiar el input inválido
+        guessInput.focus();
+        return;
+    }
+
+    // Incrementar el contador de intentos
+    attempts++;
+    attemptsInfo.textContent = `Intentos: ${attempts} / ${MAX_ATTEMPTS}`;
+
+    const listItem = document.createElement("li");
+    listItem.textContent = userGuess;
+    guessesList.appendChild(listItem);
+    // Comparar el intento con el número secreto
+    if (userGuess === secretNumber) {
+        setMessage(`¡Correcto! 🎉 El número era ${secretNumber}. Lo adivinaste en ${attempts} intentos.`, 'correct');
+        endGame();
+        //Para los intentos hay que hacer una comparacion con el incrementador de intentos
+        //y el numero maximo de intentos, hasta que llegue a 10 para.
+    } else if (attempts >= MAX_ATTEMPTS){
+        setMessage(`Se acabaron los intentos, el numero era ${secretNumber}.`, `Vuelve a intentarlo`)
+        endGame();
+    }else if (userGuess < secretNumber) {
+        setMessage('¡Demasiado bajo! Intenta un número más alto. 👇', 'wrong');
+    } else {
+        setMessage('¡Demasiado alto! Intenta un número más bajo. 👆', 'wrong');
+    }
+
+    // Limpiar el input para el siguiente intento (si no ha ganado)
+    if (userGuess !== secretNumber) {
+        guessInput.value = '';
+        guessInput.focus();
+    }
+}
 // Función para mostrar mensajes al usuario
 function setMessage(msg, type) {
     message.textContent = msg;
@@ -185,6 +253,7 @@ function endGame() {
 // Escuchar clics en el botón "Adivinar"
 guessButton.addEventListener('click', handleGuess);
 guessButton.addEventListener('click', handleGuessEasy);
+guessButton.addEventListener('click', handleGuessHard);
 easy.addEventListener('click', startGameEasy)
 // Escuchar la tecla "Enter" en el campo de entrada
 guessInput.addEventListener('keyup', function(event) {

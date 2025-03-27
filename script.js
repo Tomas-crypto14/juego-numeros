@@ -66,7 +66,10 @@ function handleGuess() {
     if (userGuess === secretNumber) {
         setMessage(`¡Correcto! 🎉 El número era ${secretNumber}. Lo adivinaste en ${attempts} intentos.`, 'correct');
         endGame();
-    } else if (userGuess < secretNumber) {
+    } else if (attempts >= MAX_ATTEMPTS){
+        setMessage(`Se acabaron los intentos, el numero era ${secretNumber}.`, `Vuelve a intentarlo`)
+
+    }else if (userGuess < secretNumber) {
         setMessage('¡Demasiado bajo! Intenta un número más alto. 👇', 'wrong');
     } else {
         setMessage('¡Demasiado alto! Intenta un número más bajo. 👆', 'wrong');
@@ -76,11 +79,6 @@ function handleGuess() {
     if (userGuess !== secretNumber) {
         guessInput.value = '';
         guessInput.focus();
-    }
-
-    if (MAX_ATTEMPTS = 10){
-        setMessage(`Se acabaron los intentos, el número era ${secretNumber}`, `Vuelve a intentarlo`)
-        endGame();   
     }
 }
 

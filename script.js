@@ -68,7 +68,7 @@ function handleGuess() {
         endGame();
     } else if (attempts >= MAX_ATTEMPTS){
         setMessage(`Se acabaron los intentos, el numero era ${secretNumber}.`, `Vuelve a intentarlo`)
-
+        endGame();
     }else if (userGuess < secretNumber) {
         setMessage('¡Demasiado bajo! Intenta un número más alto. 👇', 'wrong');
     } else {

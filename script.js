@@ -5,14 +5,17 @@ const message = document.getElementById('message');
 const attemptsInfo = document.getElementById('attempts');
 const guessesList = document.getElementById('guessesList');
 const playAgainButton = document.getElementById('playAgainButton');
-
+const dificultad = document.getElementById('dificultad')
 // --- Variables del Juego ---
+
 let secretNumber;
 let attempts;
 const MAX_ATTEMPTS = 10;
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
-
+dificultad.innerHTML=`<option>Facil</option>
+<option>Normal</option>
+<option>Dificil</option>`
 // --- Funciones ---
 
 // Función para iniciar o reiniciar el juego

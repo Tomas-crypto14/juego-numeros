@@ -42,7 +42,6 @@ function startGame() {
 
 // Función para manejar el intento del usuario
 function handleGuess() {
-    MAX_NUMBER = 100;
     const userGuessText = guessInput.value;
 
     // Validar si la entrada está vacía
@@ -124,7 +123,7 @@ function startGameEasy() {
 }
 
 // Función para manejar el intento del usuario
-function handleGuessEasy() {
+/*function handleGuessEasy() {
     MAX_NUMBER = 50;
     const userGuessText = guessInput.value;
 
@@ -171,7 +170,7 @@ function handleGuessEasy() {
         guessInput.value = '';
         guessInput.focus();
     }
-}
+}*/
 
 function startGameHard() {
     MAX_NUMBER = 200;
@@ -194,7 +193,7 @@ function startGameHard() {
 }
 
 // Función para manejar el intento del usuario
-function handleGuessHard() {
+/*function handleGuessHard() {
     MAX_NUMBER = 200;
     const userGuessText = guessInput.value;
 
@@ -241,7 +240,8 @@ function handleGuessHard() {
         guessInput.value = '';
         guessInput.focus();
     }
-}
+}*/
+
 // Función para mostrar mensajes al usuario
 function setMessage(msg, type) {
     message.textContent = msg;

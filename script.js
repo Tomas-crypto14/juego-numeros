@@ -14,7 +14,6 @@ const hard = document.getElementById('hard');
 
 let secretNumber;
 let attempts;
-let MAXNUMBER;
 const MAX_ATTEMPTS = 10;
 let MAX_NUMBER;
 const MIN_NUMBER = 1;

@@ -271,22 +271,6 @@ guessInput.addEventListener('keyup', function(event) {
     }
 });
 
-guessInput.addEventListener('keyup', function(event) {
-    // Si la tecla presionada es Enter (código 13)
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Evita comportamiento por defecto (si estuviera en un form)
-        handleGuessEasy(); // Llama a la función de adivinar
-    }
-});
-
-guessInput.addEventListener('keyup', function(event) {
-    // Si la tecla presionada es Enter (código 13)
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Evita comportamiento por defecto (si estuviera en un form)
-        handleGuessHard(); // Llama a la función de adivinar
-    }
-});
-
 // Escuchar clics en el botón "Jugar de Nuevo"
 playAgainButton.addEventListener('click', startGame);
 

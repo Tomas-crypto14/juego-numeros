@@ -269,4 +269,4 @@ guessInput.addEventListener('keyup', function(event) {
 playAgainButton.addEventListener('click', startGame);
 
 // --- Iniciar el juego al cargar la página ---
-startGame();
+normal.addEventListener('click', startGame);

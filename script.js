@@ -16,7 +16,7 @@ let secretNumber;
 let attempts;
 let MAXNUMBER;
 const MAX_ATTEMPTS = 10;
-const MAX_NUMBER = 100;
+let MAX_NUMBER;
 const MIN_NUMBER = 1;
 // --- Funciones ---
 

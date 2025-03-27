@@ -120,7 +120,7 @@ function startGameEasy() {
 }
 
 // Función para manejar el intento del usuario
-function handleGuess() {
+function handleGuessEasy() {
     const userGuessText = guessInput.value;
 
     // Validar si la entrada está vacía
@@ -185,7 +185,7 @@ function endGame() {
 
 // Escuchar clics en el botón "Adivinar"
 guessButton.addEventListener('click', handleGuess);
-
+guessButton.addEventListener('click', handleGuessEasy);
 easy.addEventListener('click', startGameEasy)
 // Escuchar la tecla "Enter" en el campo de entrada
 guessInput.addEventListener('keyup', function(event) {

@@ -76,6 +76,10 @@ function handleGuess() {
         guessInput.value = '';
         guessInput.focus();
     }
+
+    if (attempts = 10){
+        setMessage(`Se acabaron los intentos, el número era ${secretNumber}`)   
+    }
 }
 
 // Función para mostrar mensajes al usuario

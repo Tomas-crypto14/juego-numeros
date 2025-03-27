@@ -11,6 +11,7 @@ const hard = document.getElementById('hard');
 
 let secretNumber;
 let attempts;
+let MAXNUMBER;
 const MAX_ATTEMPTS = 10;
 const MAX_NUMBER = 100;
 const MAX_NUMBER_EASY = 50;
@@ -101,6 +102,7 @@ function endGame() {
 }
 
 function startGameEasy() {
+    MAX_NUMBER = 50;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
     secretNumber = Math.floor(Math.random() * MAX_NUMBER_EASY) + MIN_NUMBER;
@@ -121,6 +123,7 @@ function startGameEasy() {
 
 // Función para manejar el intento del usuario
 function handleGuessEasy() {
+    MAX_NUMBER = 50;
     const userGuessText = guessInput.value;
 
     // Validar si la entrada está vacía
@@ -132,8 +135,8 @@ function handleGuessEasy() {
     const userGuess = parseInt(userGuessText);
 
     // Validar si la entrada es un número válido y está en el rango
-    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER_EASY) {
-        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER_EASY}.`, 'info');
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER}.`, 'info');
         guessInput.value = ''; // Limpiar el input inválido
         guessInput.focus();
         return;
@@ -169,9 +172,10 @@ function handleGuessEasy() {
 }
 
 function startGameHard() {
+    MAX_NUMBER = 200;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER_HARD) + MIN_NUMBER;
+    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
 
     // Mensajes iniciales y estado de la UI
@@ -200,8 +204,8 @@ function handleGuessHard() {
     const userGuess = parseInt(userGuessText);
 
     // Validar si la entrada es un número válido y está en el rango
-    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER_HARD) {
-        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER_HARD}.`, 'info');
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER}.`, 'info');
         guessInput.value = ''; // Limpiar el input inválido
         guessInput.focus();
         return;

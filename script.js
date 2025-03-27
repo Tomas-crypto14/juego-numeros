@@ -14,8 +14,6 @@ let attempts;
 let MAXNUMBER;
 const MAX_ATTEMPTS = 10;
 const MAX_NUMBER = 100;
-const MAX_NUMBER_EASY = 50;
-const MAX_NUMBER_HARD = 200;
 const MIN_NUMBER = 1;
 // --- Funciones ---
 
@@ -105,7 +103,7 @@ function startGameEasy() {
     MAX_NUMBER = 50;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER_EASY) + MIN_NUMBER;
+    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
 
     // Mensajes iniciales y estado de la UI

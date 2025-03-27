@@ -8,6 +8,7 @@ const attemptsInfo = document.getElementById('attempts');
 const guessesList = document.getElementById('guessesList');
 const playAgainButton = document.getElementById('playAgainButton');
 const easy = document.getElementById('easy');
+const normal = document.getElementById('normal');
 const hard = document.getElementById('hard');
 // --- Variables del Juego ---
 
@@ -16,8 +17,6 @@ let attempts;
 let MAXNUMBER;
 const MAX_ATTEMPTS = 10;
 const MAX_NUMBER = 100;
-const MAX_NUMBER_EASY = 50;
-const MAX_NUMBER_HARD = 200;
 const MIN_NUMBER = 1;
 // --- Funciones ---
 
@@ -137,8 +136,8 @@ function handleGuessEasy() {
     const userGuess = parseInt(userGuessText);
 
     // Validar si la entrada es un número válido y está en el rango
-    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER_EASY) {
-        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER_EASY}.`, 'info');
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER}.`, 'info');
         guessInput.value = ''; // Limpiar el input inválido
         guessInput.focus();
         return;
@@ -174,10 +173,10 @@ function handleGuessEasy() {
 }
 
 function startGameHard() {
-    //MAX_NUMBER = 200;
+    MAX_NUMBER = 200;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER_HARD) + MIN_NUMBER;
+    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
 
     // Mensajes iniciales y estado de la UI
@@ -195,6 +194,7 @@ function startGameHard() {
 
 // Función para manejar el intento del usuario
 function handleGuessHard() {
+    MAX_NUMBER = 200;
     const userGuessText = guessInput.value;
 
     // Validar si la entrada está vacía
@@ -206,8 +206,8 @@ function handleGuessHard() {
     const userGuess = parseInt(userGuessText);
 
     // Validar si la entrada es un número válido y está en el rango
-    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER_HARD) {
-        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER_HARD}.`, 'info');
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER}.`, 'info');
         guessInput.value = ''; // Limpiar el input inválido
         guessInput.focus();
         return;
@@ -261,6 +261,7 @@ guessButton.addEventListener('click', handleGuess);
 guessButton2.addEventListener('click', handleGuessEasy);
 guessButton3.addEventListener('click', handleGuessHard);
 easy.addEventListener('click', startGameEasy);
+normal.addEventListener('click', startGame);
 hard.addEventListener('click', startGameHard);
 // Escuchar la tecla "Enter" en el campo de entrada
 guessInput.addEventListener('keyup', function(event) {
@@ -275,4 +276,4 @@ guessInput.addEventListener('keyup', function(event) {
 playAgainButton.addEventListener('click', startGame);
 
 // --- Iniciar el juego al cargar la página ---
-startGame();
+//startGame();

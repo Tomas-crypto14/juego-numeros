@@ -163,6 +163,7 @@ function endGame() {
 // Escuchar clics en el botón "Adivinar"
 guessButton.addEventListener('click', handleGuess);
 normal.addEventListener('click', startGame);
+//Para empezar la partida con la difucultad por defecto.
 startGame();
 easy.addEventListener('click', startGameEasy);
 hard.addEventListener('click', startGameHard);

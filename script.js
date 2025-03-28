@@ -77,7 +77,7 @@ function handleGuess() {
         if (attempts < record){
             localStorage.setItem("record", attempts);
             const rotoRecord = document.getElementById("rotorecord");
-            rotoRecord.innerText = ` Enhorabuena, has roto el record: ${record}`;
+            rotoRecord.innerText = ` Enhorabuena, has roto el record con ${attempts} intentos`;
         }
         //localStorage.setItem("record", attempts);
         endGame();

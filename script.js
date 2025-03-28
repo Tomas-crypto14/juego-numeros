@@ -18,7 +18,8 @@ let attempts;
 const MAX_ATTEMPTS = 10;
 let max_number;
 const MIN_NUMBER = 1;
-const record = localStorage.getItem("record") || MAX_ATTEMPTS + 1;
+const record = localStorage.getItem("record") || "No hay Record";
+
 // --- Funciones ---
 
 // Función para iniciar o reiniciar el juego

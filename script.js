@@ -18,6 +18,7 @@ let attempts;
 const MAX_ATTEMPTS = 10;
 let max_number;
 const MIN_NUMBER = 1;
+const record = localStorage.getItem("record") || Infinity;
 // --- Funciones ---
 
 // Función para iniciar o reiniciar el juego
@@ -72,7 +73,6 @@ function handleGuess() {
     // Comparar el intento con el número secreto
     if (userGuess === secretNumber) {
         setMessage(`¡Correcto! 🎉 El número era ${secretNumber}. Lo adivinaste en ${attempts} intentos.`, 'correct');
-        localStorage.setItem("HighScore", attempts);
         endGame();
         //Para los intentos hay que hacer una comparacion con el incrementador de intentos
         //y el numero maximo de intentos, hasta que llegue a 10 para.
@@ -103,6 +103,8 @@ function endGame() {
     guessInput.disabled = true; // Deshabilita el input
     guessButton.disabled = true; // Deshabilita el botón de adivinar
     playAgainButton.style.display = 'inline-block'; // Muestra el botón de jugar de nuevo
+    localStorage.setItem("HighScore", attempts);
+    localStorage.setItem("record", attempts);
 }
 
 function startGameEasy() {

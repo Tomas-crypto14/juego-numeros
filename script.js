@@ -22,7 +22,7 @@ const MIN_NUMBER = 1;
 
 // Función para iniciar o reiniciar el juego
 function startGame() {
-    texto.innerHTML = `He pensado en un número entre 1 y ${max_number}. ¿Puedes adivinar cuál es?`
+    texto.innerHTML = `He pensado en un número entre 1 y 100. ¿Puedes adivinar cuál es?`
     max_number = 100;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER

@@ -15,16 +15,16 @@ const hard = document.getElementById('hard');
 let secretNumber;
 let attempts;
 const MAX_ATTEMPTS = 10;
-let MAX_NUMBER;
+let max_number;
 const MIN_NUMBER = 1;
 // --- Funciones ---
 
 // Función para iniciar o reiniciar el juego
 function startGame() {
-    MAX_NUMBER = 100;
+    max_number = 100;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+    secretNumber = Math.floor(Math.random() * max_number) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
 
     // Mensajes iniciales y estado de la UI
@@ -53,8 +53,8 @@ function handleGuess() {
     const userGuess = parseInt(userGuessText);
 
     // Validar si la entrada es un número válido y está en el rango
-    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
-        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${MAX_NUMBER}.`, 'info');
+    if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > max_number) {
+        setMessage(`Introduce un número válido entre ${MIN_NUMBER} y ${max_number}.`, 'info');
         guessInput.value = ''; // Limpiar el input inválido
         guessInput.focus();
         return;
@@ -104,10 +104,10 @@ function endGame() {
 }
 
 function startGameEasy() {
-    MAX_NUMBER = 50;
+    max_number = 50;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+    secretNumber = Math.floor(Math.random() * max_number) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
 
     // Mensajes iniciales y estado de la UI
@@ -126,10 +126,10 @@ function startGameEasy() {
 // Función para manejar el intento del usuario
 
 function startGameHard() {
-    MAX_NUMBER = 200;
+    max_number = 200;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+    secretNumber = Math.floor(Math.random() * max_number) + MIN_NUMBER;
     attempts = 0; // Reinicia los intentos
 
     // Mensajes iniciales y estado de la UI

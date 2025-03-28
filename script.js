@@ -74,7 +74,7 @@ function handleGuess() {
         endGame();
         //Para los intentos hay que hacer una comparacion con el incrementador de intentos
         //y el numero maximo de intentos, hasta que llegue a 10 para.
-    } else if (attempts >= MAX_ATTEMPTS){
+    } else if (attempts === MAX_ATTEMPTS){
         setMessage(`Has perdido, el numero era ${secretNumber}.`, `Vuelve a intentarlo`)
         endGame();
     }else if (userGuess < secretNumber) {

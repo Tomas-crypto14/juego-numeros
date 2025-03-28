@@ -76,7 +76,7 @@ function handleGuess() {
         if (attempts < record){
             localStorage.setItem("record", attempts);
         }
-        //localStorage.setItem("HighScore", attempts);
+        localStorage.setItem("HighScore", attempts);
         //localStorage.setItem("record", attempts);
         endGame();
         //Para los intentos hay que hacer una comparacion con el incrementador de intentos

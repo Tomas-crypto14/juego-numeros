@@ -74,7 +74,7 @@ function handleGuess() {
     if (userGuess === secretNumber) {
         setMessage(`¡Correcto! 🎉 El número era ${secretNumber}. Lo adivinaste en ${attempts} intentos.`, 'correct');
         if (attempts < record){
-            localStorage.setItem("record, attempts");
+            localStorage.setItem("record", attempts);
         }
         //localStorage.setItem("HighScore", attempts);
         //localStorage.setItem("record", attempts);

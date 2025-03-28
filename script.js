@@ -7,6 +7,7 @@ const message = document.getElementById('message');
 const attemptsInfo = document.getElementById('attempts');
 const guessesList = document.getElementById('guessesList');
 const playAgainButton = document.getElementById('playAgainButton');
+const texto = document.getElementById('texto');
 const easy = document.getElementById('easy');
 const normal = document.getElementById('normal');
 const hard = document.getElementById('hard');
@@ -21,6 +22,7 @@ const MIN_NUMBER = 1;
 
 // Función para iniciar o reiniciar el juego
 function startGame() {
+    texto.innerHTML = `He pensado en un número entre 1 y ${max_number}. ¿Puedes adivinar cuál es?`
     max_number = 100;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
@@ -104,6 +106,7 @@ function endGame() {
 }
 
 function startGameEasy() {
+    texto.innerHTML = `He pensado en un número entre 1 y ${max_number}. ¿Puedes adivinar cuál es?`
     max_number = 50;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
@@ -126,6 +129,7 @@ function startGameEasy() {
 // Función para manejar el intento del usuario
 
 function startGameHard() {
+    texto.innerHTML = `He pensado en un número entre 1 y ${max_number}. ¿Puedes adivinar cuál es?`
     max_number = 200;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER

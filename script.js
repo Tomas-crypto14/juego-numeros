@@ -73,12 +73,12 @@ function handleGuess() {
     // Comparar el intento con el número secreto
     if (userGuess === secretNumber) {
         setMessage(`¡Correcto! 🎉 El número era ${secretNumber}. Lo adivinaste en ${attempts} intentos.`, 'correct');
+        localStorage.setItem("HighScore", attempts);
         if (attempts < record){
             localStorage.setItem("record", attempts);
             const rotoRecord = document.getElementById("rotorecord");
             rotoRecord.innerText = ` Enhorabuena, has roto el record: ${record}`;
         }
-        localStorage.setItem("HighScore", attempts);
         //localStorage.setItem("record", attempts);
         endGame();
         //Para los intentos hay que hacer una comparacion con el incrementador de intentos

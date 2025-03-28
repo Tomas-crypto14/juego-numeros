@@ -106,7 +106,7 @@ function endGame() {
 }
 
 function startGameEasy() {
-    texto.innerHTML = `He pensado en un número entre 1 y ${max_number}. ¿Puedes adivinar cuál es?`
+    texto.innerHTML = `He pensado en un número entre 1 y 50. ¿Puedes adivinar cuál es?`
     max_number = 50;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
@@ -129,7 +129,7 @@ function startGameEasy() {
 // Función para manejar el intento del usuario
 
 function startGameHard() {
-    texto.innerHTML = `He pensado en un número entre 1 y ${max_number}. ¿Puedes adivinar cuál es?`
+    texto.innerHTML = `He pensado en un número entre 1 y 200. ¿Puedes adivinar cuál es?`
     max_number = 200;
     guessesList.innerHTML = '';
     // Genera un número secreto entre MIN_NUMBER y MAX_NUMBER
